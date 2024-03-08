@@ -155,6 +155,16 @@ def plot_fatorial(n):
     plt.grid(True)
     plt.show()
 
+# opção para funçao logaritima
+
+def log (base, logaritimando):
+    resultado = 0
+    base_inicio = base
+    while base <= logaritimando:
+        base *= base_inicio
+        resultado +=1
+    return resultado
+
 # exibir opções
 def print_calculator():
 
@@ -182,7 +192,8 @@ def print_funcoes():
       2: Quadrática    
       3: Linear    
       4: Fatorial
-      5. Voltar""")
+      5: logaritima                 
+      6. Voltar""")
 
 # função de inicio do programa
 def init():
@@ -197,31 +208,26 @@ def init():
             categoria = int(input("\nEscolha uma categoria: "))
             while categoria != 5:
 
+                valor1 = float(input("\nDigite o primeiro valor: "))
+                valor2 = float(input("\nDigite o segundo valor: "))
+
                 if categoria == 1:
                     print("\nVocê escolheu SOMA")
-                    valor1 = int(input("\nDigite o primeiro valor: "))
-                    valor2 = int(input("\nDigite o segundo valor: "))
                     print(f"\nO resultado é {soma(valor1,valor2)}")
                     break
 
                 elif categoria == 2:
                     print("\nVocê escolheu SUBTRAÇÃO")
-                    valor1 = int(input("\nDigite o primeiro valor: "))
-                    valor2 = int(input("\nDigite o segundo valor: "))
                     print(f"\nO resultado é {subtracao(valor1, valor2)}")
                     break
 
                 elif categoria == 3:
                     print("\nVocê escolheu MULTIPLICAÇÃO")
-                    valor1 = int(input("\nDigite o primeiro valor: "))
-                    valor2 = int(input("\nDigite o segundo valor: "))
                     print(f"\nO resultado é {multiplicacao(valor1, valor2)}")
                     break
 
                 elif categoria == 4:
                     print("\nVocê escolheu DIVISÃO")
-                    valor1 = int(input("\nDigite o primeiro valor: "))
-                    valor2 = int(input("\nDigite o segundo valor: "))
                     print(f"\nO resultado é {divisao(valor1, valor2)}")
                     break
 
@@ -233,7 +239,7 @@ def init():
 
             funcao = int(input("\nEscolha uma função: "))
 
-            while funcao != 5:
+            while funcao != 6:
 
                 if funcao == 1:
                     print("\nVocê escolheu a função EXPONENCIAL (a ** x)")
@@ -275,7 +281,16 @@ def init():
                     break
 
                 elif funcao == 5:
+                    print(' funçao log: f(x) = logbase(logaritimando)')
+                    base = int(input(' digite a base da função logaritima: '))
+                    logaritimando = int(input(' digite o logaritimando da função logaritima: '))
+                    print(f' o log de {logaritimando} na base {base} é: {log(base,  logaritimando)}')
+                    break
+                
+                elif funcao == 6:
                     print_funcoes()
+        
+        
 
         elif escolha == 3:
             break
